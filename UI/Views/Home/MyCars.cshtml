@@ -1,0 +1,58 @@
+﻿@model List<Public.Dtos.Car.CarDto>
+
+@{
+    ViewBag.Title = "My Cars";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <section class="card mt-5">
+                <header class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2 class="card-title">My Cars</h2>
+                        </div>
+                    </div>
+                </header>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table" id="cars">
+                                <thead>
+                                <tr>
+                                    <th>Brand</th>
+                                    <th>Model</th>
+                                    <th>Price</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach (var car in Model)
+                                {
+                                    <tr>
+                                        <td>@car.Brand</td>
+                                        <td>@car.Model</td>
+                                        <td>@car.Price</td>
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </div>
+</section>
+
+
+@section Scripts{
+    <script type="text/javascript">
+    
+    $(document).ready(function () {
+      $('#cars').DataTable();        
+    });
+ </script>
+}
